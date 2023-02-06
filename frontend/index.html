@@ -5,27 +5,161 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./static/style.css" />
-    <title>TodoListApp</title>
+    <title>Django Notes App</title>
   </head>
   <body>
     <div class="container">
       <header class="header">
-        <a href="#" class="logo-text">notes</a>
-        <div class="toggle-btn">
+        <a href="#" class="logo-text" title="DjangoNotesApp">notes</a>
+        <div class="toggle-btn" title="Toggle Theme">
           <div class="toggle-dot"></div>
         </div>
       </header>
       <!-- /header -->
 
-      <div class="search-notes">
-        <form action="">
-          <input type="text" class="input-box" placeholder="Search Notes" />
-          <button type="submit" class="search-notes__icon">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </form>
+      <div class="options-container">
+        <button class="icon-btn add-notes" title="Add Note">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+        <div class="search-notes">
+          <form action="">
+            <input type="text" class="input-box" placeholder="Search Notes" />
+            <button
+              type="submit"
+              class="icon-btn search-notes__icon"
+              title="Search Note"
+            >
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+        </div>
+        <!-- /search-notes -->
       </div>
-      <!-- /task-container -->
+      <!-- /options-container -->
+
+      <div class="notes-container">
+        <div class="note">
+          <h3 class="note-title" title="{note-title}">
+            <a href="#">
+              Lorem ipsum dolor, sit amet consectetur adipisicing.
+            </a>
+          </h3>
+          <!-- /note-title -->
+          <p class="note-body">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore
+            illum, dolor totam assumenda saepe placeat quas ipsum fuga, illo
+            voluptate, deserunt consequatur ut tempora excepturi impedit labore
+            unde eligendi eveniet Lorem ipsum dolor sit amet consectetur,
+            adipisicing elit. Explicabo doloribus quae modi delectus vero quam
+            error culpa eveniet in sit. Eos...
+            <a href="#" class="note-link" title="View More"> View More </a>
+          </p>
+          <!-- /note-body -->
+          <div class="divider"></div>
+          <div class="note-tools-container">
+            <span class="note-created" title="{date}"> 2021-4-8 </span>
+            <div class="note-options">
+              <button class="icon-btn option" title="Edit">
+                <i class="fa-solid fa-pencil"></i>
+              </button>
+              <button class="icon-btn option" title="Delete">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
+            <!-- /options -->
+          </div>
+          <!-- /note-tools -->
+        </div>
+        <!-- /note -->
+
+        <div class="note">
+          <h3 class="note-title">Lorem ipsum dolor sit.</h3>
+          <!-- /note-title -->
+          <p class="note-body">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore
+            illum, dolor totam assumenda saepe placeat quas ipsum fuga, illo
+            voluptate, deserunt consequatur ut tempora excepturi impedit labore
+            unde eligendi eveniet...
+            <a href="#" class="note-link"> View More </a>
+          </p>
+          <!-- /note-body -->
+
+          <div class="divider"></div>
+          <div class="note-tools-container">
+            <span class="note-created"> 2021-4-8 </span>
+            <div class="note-options">
+              <button class="icon-btn option">
+                <i class="fa-solid fa-pencil"></i>
+              </button>
+              <button class="icon-btn option">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
+            <!-- /options -->
+          </div>
+          <!-- /note-tools -->
+        </div>
+        <!-- /note -->
+
+        <div class="note">
+          <h3 class="note-title">Lorem ipsum dolor sit.</h3>
+          <!-- /note-title -->
+          <p class="note-body">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore
+            illum, dolor totam assumenda saepe placeat quas ipsum fuga, illo
+            voluptate, deserunt consequatur ut tempora excepturi impedit labore
+            unde eligendi eveniet...
+            <a href="#" class="note-link"> View More </a>
+          </p>
+          <!-- /note-body -->
+          <div class="divider"></div>
+
+          <div class="note-tools-container">
+            <span class="note-created"> 2021-4-8 </span>
+            <div class="note-options">
+              <button class="icon-btn option">
+                <i class="fa-solid fa-pencil"></i>
+              </button>
+              <button class="icon-btn option">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
+            <!-- /options -->
+          </div>
+          <!-- /note-tools -->
+        </div>
+        <!-- /note -->
+
+        <div class="note">
+          <h3 class="note-title">Lorem ipsum dolor sit.</h3>
+          <!-- /note-title -->
+          <p class="note-body">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore
+            illum, dolor totam assumenda saepe placeat quas ipsum fuga, illo
+            voluptate, deserunt consequatur ut tempora excepturi impedit labore
+            unde eligendi eveniet...
+            <a href="#" class="note-link"> View More </a>
+          </p>
+          <!-- /note-body -->
+          <div class="divider"></div>
+
+          <div class="note-tools-container">
+            <span class="note-created"> 2021-4-8 </span>
+            <div class="note-options">
+              <button class="icon-btn option">
+                <i class="fa-solid fa-pencil"></i>
+              </button>
+              <button class="icon-btn option">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
+            <!-- /options -->
+          </div>
+          <!-- /note-tools -->
+        </div>
+        <!-- /note -->
+      </div>
+      <!-- /notes-container -->
     </div>
     <!-- /container -->
 

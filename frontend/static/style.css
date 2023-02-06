@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Open+Sans:wght@300;400;700&display=swap');
 
 :root {
   --global-transition: 150ms color linear, 200ms background-color ease-in-out,
@@ -6,18 +6,18 @@
     margin 220ms linear, 150ms opacity linear, 150ms box-shadow linear;
 }
 
-.theme-dark {
-  --color-primary: #f1faee;
-  --color-secondary: #21222a;
-  --color-gray: #6c6c6c;
-  --font-color: #ffffff;
-}
-
 .theme-light {
   --color-primary: #21222a;
   --color-secondary: #f1faee;
   --color-gray: #626262;
   --font-color: #000000;
+}
+
+.theme-dark {
+  --color-primary: #e2e2e1;
+  --color-secondary: #21222a;
+  --color-gray: #6c6c6c;
+  --font-color: #d4d4d4;
 }
 
 * {
@@ -36,21 +36,29 @@ body {
   width: 100%;
   height: 100vh;
   font-size: 16px;
-  font-family: 'Open Sans', sans-serif;
   line-height: 24px;
-  padding: 10px;
+  font-family: 'Open Sans', 'sans-serif';
+  padding: 10px 0;
+}
+
+.icon-btn {
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .container {
-  max-width: 780px;
+  max-width: 1290px;
   width: 100%;
   margin: 10px auto;
-  padding: 10px;
+  padding: 10px 12px;
 }
 
 .header,
-.search-notes {
+.options-container {
   max-width: 600px;
+  margin: 0 auto;
 }
 
 .header {
@@ -63,14 +71,14 @@ body {
 
 .toggle-btn {
   cursor: pointer;
-  width: 36px;
-  height: 20px;
+  width: 38px;
+  height: 21px;
   border: 2px solid var(--color-primary);
   display: flex;
   justify-content: flex-start;
   align-items: center;
   border-radius: 40px;
-  padding: 0 1.5px;
+  padding: 0 3px;
 }
 
 .toggle-dot {
@@ -86,11 +94,12 @@ body {
 
 .logo-text {
   color: var(--color-primary);
+  font-family: 'Nunito', sans-serif;
   user-select: none;
   text-decoration: none;
-  font-size: 30px;
+  font-size: 34px;
   font-weight: 600;
-  line-height: 38px;
+  line-height: 42px;
   position: relative;
   text-transform: capitalize;
   letter-spacing: 1px;
@@ -113,18 +122,40 @@ body {
   width: 95%;
 }
 
-.notes-container,
-.search-notes {
-  width: 100%;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 1px;
-  overflow: hidden;
+.options-container {
+  margin-bottom: 40px;
+  display: flex;
+  gap: 13px;
+}
+
+.search-notes,
+.add-notes {
   border-radius: 5.5px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 1px;
+}
+
+.add-notes {
+  width: 45px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search-notes {
+  width: 100%;
+  overflow: hidden;
   padding: 10px 15px;
-  margin: auto;
-  margin-bottom: 40px;
+}
+
+.search-notes__icon,
+.add-notes {
+  color: var(--color-gray);
+}
+
+.search-notes__icon:hover,
+.add-notes:hover {
+  color: var(--color-primary);
 }
 
 .search-notes > form {
@@ -153,14 +184,95 @@ body {
   color: transparent;
 }
 
-.search-notes__icon {
-  font-size: 16px;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
+.divider {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 2px;
+  border-radius: 40px;
+}
+
+.notes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: start;
+  gap: 20px;
+}
+
+.note {
+  width: 100%;
+  max-width: 380px;
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  padding: 15px;
+  border-radius: 7px;
+}
+
+.note-title {
+  margin-bottom: 13px;
+}
+
+.note .note-title > a {
+  font-size: 22px;
+  line-height: 28px;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.note .note-body {
+  line-height: 22px;
+  margin-bottom: 13px;
+  color: var(--font-color);
+}
+
+.note .note-link {
   color: var(--color-gray);
 }
 
-.search-notes__icon:hover {
+.note .note-link:hover {
   color: var(--color-primary);
+}
+
+.note .note-tools-container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 8px;
+}
+
+.note .note-created {
+  font-family: 'Nunito', 'sans-serif';
+  color: var(--color-primary);
+}
+
+.note .note-options {
+  display: flex;
+  gap: 10px;
+}
+
+.note .note-options .option {
+  color: var(--color-primary);
+}
+
+/* responsive-large */
+@media only screen and (max-width: 992px) {
+  .note {
+    max-width: 430px;
+  }
+}
+
+/* responsive-medium */
+@media only screen and (max-width: 768px) {
+  .note {
+    max-width: 600px;
+  }
+}
+
+/* responsive-small */
+@media only screen and (max-width: 565px) {
+  .header {
+    margin: 5px auto;
+  }
+
+  .search-notes {
+    margin-bottom: 25px;
+  }
 }
