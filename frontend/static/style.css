@@ -286,12 +286,19 @@ body {
 
 .note-item .note-item__body {
   line-height: 22px;
-  margin-bottom: 13px;
   color: var(--font-color);
+
+  display: block;
+  height: 130px;
+  max-height: fit-content;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .note-item .note-item__link {
   color: var(--color-gray);
+  margin-bottom: 13px;
+  display: inline-block;
 }
 
 .note-item .note-item__link:hover {
