@@ -287,7 +287,6 @@ body {
 .note-item .note-item__body {
   line-height: 22px;
   color: var(--font-color);
-
   display: block;
   height: 130px;
   max-height: fit-content;

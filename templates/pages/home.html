@@ -1,0 +1,58 @@
+{% extends 'main.html' %} {% block content %}
+
+<div class="options-container">
+  <button class="icon-btn add-notes" title="Add Note">
+    <i class="fa-solid fa-plus"></i>
+  </button>
+  <div class="search-notes">
+    <form action="">
+      <input
+        type="text"
+        class="search-notes__input-box"
+        placeholder="Search Notes"
+      />
+      <button
+        type="submit"
+        class="icon-btn search-notes__icon"
+        title="Search Note"
+      >
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </form>
+  </div>
+  <!-- /search-notes -->
+</div>
+<!-- /options-container -->
+
+<div class="notes-container">
+  {% for note in notes %}
+
+  <div class="note-item__container note-item">
+    <h3 class="note-item__title" title="{{ note.title }}">
+      <a href="#">{{ note.title }}</a>
+    </h3>
+    <!-- /note-item__title -->
+    <p class="note-item__body">{{ note.body }}</p>
+    <a href="#" class="note-item__link" title="View More"> View More </a>
+    <!-- /note-item__body -->
+    <div class="divider"></div>
+    <div class="note-tools-container">
+      <span class="note-date"> {{ note.created }} </span>
+      <div class="note-options">
+        <button class="icon-btn option" title="Edit">
+          <i class="fa-solid fa-pencil"></i>
+        </button>
+        <button class="icon-btn option" title="Delete">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </div>
+      <!-- /options -->
+    </div>
+    <!-- /note-tools -->
+  </div>
+  <!-- /note-item -->
+
+  {% endfor %}
+</div>
+<!-- /notes-container -->
+{% endblock content %}

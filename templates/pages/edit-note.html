@@ -1,0 +1,17 @@
+{% extends 'main.html' %} {% block content %}
+
+<div class="note-item__container edit-note">
+  <form action="">
+    <input type="text" class="edit-note__title" placeholder="Note title..." />
+    <!-- /note-title -->
+    <textarea
+      name="note-body"
+      class="edit-note__body"
+      placeholder="Enter note..."
+    ></textarea>
+    <!-- /note-body -->
+    <input type="submit" class="btn" value="Submit" />
+  </form>
+</div>
+<!-- /edit-note -->
+{% endblock content %}
