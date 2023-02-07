@@ -17,24 +17,16 @@
       </header>
       <!-- /header -->
 
-      <div class="note-item__container edit-note">
+      <div class="note-item__container delete-note">
+        <h2 class="delete-note__confirm">Do you really want to delete note?</h2>
+        <h3 class="delete-note__title">"Interactively mesh 2.0."</h3>
+
         <form action="">
-          <input
-            type="text"
-            class="edit-note__title"
-            placeholder="Note title..."
-          />
-          <!-- /note-title -->
-          <textarea
-            name="note-body"
-            class="edit-note__body"
-            placeholder="Enter note..."
-          ></textarea>
-          <!-- /note-body -->
-          <input type="submit" class="btn" value="Submit" />
+          <input type="submit" class="btn" value="Confirm" />
+          <a href="#" class="btn btn-link">Go Back</a>
         </form>
       </div>
-      <!-- /edit-note -->
+      <!-- /delete-note -->
     </div>
     <!-- /container -->
 
