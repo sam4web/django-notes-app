@@ -4,6 +4,8 @@
   --global-transition: 150ms color linear, 200ms background-color ease-in-out,
     150ms width linear, 200ms border-color linear, transform 200ms linear,
     margin 220ms linear, 150ms opacity linear, 150ms box-shadow linear;
+  --color-white: #ffffff;
+  --color-dark: #232527;
 }
 
 .theme-light {
@@ -48,6 +50,7 @@ body {
   cursor: pointer;
 }
 
+/* Main Container */
 .container {
   max-width: 1290px;
   width: 100%;
@@ -61,6 +64,7 @@ body {
   margin: 0 auto;
 }
 
+/* Header Container */
 .header {
   margin: 20px auto;
   padding: 5px 0;
@@ -69,6 +73,7 @@ body {
   justify-content: space-between;
 }
 
+/* Theme Toggler */
 .toggle-btn {
   cursor: pointer;
   width: 38px;
@@ -91,15 +96,17 @@ body {
 .theme-dark .toggle-btn {
   justify-content: flex-end;
 }
+/* Theme Toggler */
 
+/* Header Logo */
 .logo-text {
   color: var(--color-primary);
   font-family: 'Nunito', sans-serif;
   user-select: none;
   text-decoration: none;
-  font-size: 34px;
+  font-size: 32px;
+  line-height: 40px;
   font-weight: 600;
-  line-height: 42px;
   position: relative;
   text-transform: capitalize;
   letter-spacing: 1px;
@@ -108,20 +115,22 @@ body {
 .logo-text::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -4px;
   left: 50%;
   transform: translateX(-50%);
   width: 0%;
   border-radius: 40px;
-  height: 3px;
+  height: 2px;
   transition: inherit;
   background-color: var(--color-primary);
 }
 
 .logo-text:hover::after {
-  width: 95%;
+  width: 80%;
 }
+/* Header Logo */
 
+/* Search and Add Notes */
 .options-container {
   margin-bottom: 40px;
   display: flex;
@@ -129,9 +138,42 @@ body {
 }
 
 .search-notes,
-.add-notes {
+.add-notes,
+.btn {
   border-radius: 5.5px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 1px;
+}
+
+.btn {
+  width: 100%;
+  max-width: 100px;
+  min-width: fit-content;
+  outline-color: transparent;
+  border: 2px solid transparent;
+  line-height: inherit;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: 500;
+  padding: 7px 10px;
+  color: var(--color-secondary);
+  background-color: var(--font-color);
+}
+
+.theme-dark {
+}
+
+.theme-dark .btn,
+.btn:hover,
+.btn:focus {
+  background-color: transparent;
+  color: var(--font-color);
+  border-color: var(--font-color);
+}
+
+.btn:hover,
+.btn:focus {
+  transform: translateY(-6px);
 }
 
 .add-notes {
@@ -164,8 +206,10 @@ body {
   align-items: center;
   gap: 10px;
 }
+/* Search and Add Notes */
 
-.input-box {
+/* Search Notes Input Box */
+.search-notes__input-box {
   background-color: transparent;
   border: none;
   outline: none;
@@ -175,94 +219,202 @@ body {
   color: var(--color-primary);
 }
 
-.input-box::placeholder {
+.search-notes__input-box::placeholder {
   transition: inherit;
   color: var(--color-gray);
 }
 
-.input-box:focus::placeholder {
+.search-notes__input-box:focus::placeholder {
   color: transparent;
 }
+/* Search Notes Input Box */
 
+/* Section divider */
 .divider {
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  height: 2px;
+  background-color: var(--color-primary);
+  height: 1.5px;
   border-radius: 40px;
 }
 
+/* Notes Item Container */
 .notes-container {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: center;
   gap: 20px;
+}
+
+/* Note Item */
+
+.note-item,
+.edit-note,
+.note {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 15px 20px;
+}
+
+.note-item,
+.edit-note .edit-note__body {
+  border-radius: 7px;
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  background-color: var(--color-white);
 }
 
 .note {
   width: 100%;
-  max-width: 380px;
-  border: 2px solid rgba(0, 0, 0, 0.15);
-  padding: 15px;
-  border-radius: 7px;
+  margin-top: 30px;
 }
 
-.note-title {
+.theme-dark .note-item {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.note-item .note-item__title {
   margin-bottom: 13px;
 }
 
-.note .note-title > a {
+.note-item .note-item__title > a {
   font-size: 22px;
   line-height: 28px;
   color: var(--color-primary);
   text-decoration: none;
 }
 
-.note .note-body {
+.note-item .note-item__body {
   line-height: 22px;
   margin-bottom: 13px;
   color: var(--font-color);
 }
 
-.note .note-link {
+.note-item .note-item__link {
   color: var(--color-gray);
 }
 
-.note .note-link:hover {
+.note-item .note-item__link:hover {
   color: var(--color-primary);
 }
 
-.note .note-tools-container {
+.note-tools-container {
   display: flex;
   justify-content: space-between;
   padding-top: 8px;
 }
 
-.note .note-created {
+.note-date {
   font-family: 'Nunito', 'sans-serif';
   color: var(--color-primary);
 }
 
-.note .note-options {
+.note-options {
   display: flex;
-  gap: 10px;
+  gap: 15px;
 }
 
-.note .note-options .option {
+.note-options .option {
   color: var(--color-primary);
+}
+/* Note Item */
+
+/* Individual Note */
+.note .note-tools-container {
+  margin-bottom: 20px;
+}
+
+.note .note__title {
+  font-size: 34px;
+  line-height: 42px;
+  margin-bottom: 13px;
+  color: var(--color-primary);
+}
+
+.note .note__body {
+  color: var(--font-color);
+  margin-bottom: 25px;
+}
+/* Individual Note */
+
+/* Edit Note */
+.edit-note {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.edit-note .edit-note__body,
+.edit-note .edit-note__title {
+  color: var(--color-primary);
+  font-family: inherit;
+  background-color: transparent;
+  outline: none;
+}
+
+.edit-note .edit-note__title {
+  padding: 3px;
+  font-size: 30px;
+  line-height: 38px;
+  border: none;
+  border-bottom: 2px solid var(--color-gray);
+}
+
+.edit-note .edit-note__title::placeholder {
+  transition: inherit;
+  color: var(--color-gray);
+  font-weight: 100;
+}
+
+.edit-note .edit-note__title:focus {
+  border-bottom-color: var(--color-primary);
+}
+
+.edit-note .edit-note__body:focus::placeholder,
+.edit-note .edit-note__title:focus::placeholder {
+  color: transparent;
+}
+
+.edit-note .edit-note__body {
+  resize: vertical;
+  min-height: 500px;
+  padding: 10px;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.edit-note .edit-note__body:focus {
+  border-color: var(--color-primary);
 }
 
 /* responsive-large */
 @media only screen and (max-width: 992px) {
-  .note {
-    max-width: 430px;
-  }
 }
 
 /* responsive-medium */
 @media only screen and (max-width: 768px) {
-  .note {
-    max-width: 600px;
+  .note-item {
+    padding: 10px 15px;
+  }
+
+  .note,
+  .edit-note {
+    padding: 10px 0;
+    margin-top: 0;
+  }
+
+  .note .note-tools-container {
+    margin-bottom: 10px;
+  }
+
+  .note .note__title {
+    font-size: 29px;
+    line-height: 37px;
+    margin-bottom: 10px;
+  }
+
+  .edit-note {
+    gap: 20px;
   }
 }
 
