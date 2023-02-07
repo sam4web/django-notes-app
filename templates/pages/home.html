@@ -1,13 +1,18 @@
 {% extends 'main.html' %} {% block content %}
 
 <div class="options-container">
-  <button class="icon-btn add-notes" title="Add Note">
+  <button
+    class="icon-btn add-notes"
+    title="Add Note"
+    onclick="window.location.href=`{% url 'add-note' %}`;"
+  >
     <i class="fa-solid fa-plus"></i>
   </button>
   <div class="search-notes">
-    <form action="">
+    <form action="" method="GET">
       <input
         type="text"
+        name="q"
         class="search-notes__input-box"
         placeholder="Search Notes"
       />
@@ -25,24 +30,43 @@
 <!-- /options-container -->
 
 <div class="notes-container">
-  {% for note in notes %}
-
+  {% if notes %} {% for note in notes %}
   <div class="note-item__container note-item">
     <h3 class="note-item__title" title="{{ note.title }}">
-      <a href="#">{{ note.title }}</a>
+      <a href="{% url 'display-note' note.id %}">{{ note.title }}</a>
     </h3>
     <!-- /note-item__title -->
-    <p class="note-item__body">{{ note.body }}</p>
-    <a href="#" class="note-item__link" title="View More"> View More </a>
+
+    <p class="note-item__body">
+      {{ note.body|slice:420 }}{% if note.body|length > 50 %}...
+      <a
+        href="{% url 'display-note' note.id %}"
+        class="note-item__link"
+        title="View More"
+      >
+        View More
+      </a>
+      {% endif %}
+    </p>
     <!-- /note-item__body -->
+
     <div class="divider"></div>
+
     <div class="note-tools-container">
-      <span class="note-date"> {{ note.created }} </span>
+      <span class="note-date"> {{ note.created|date }} </span>
       <div class="note-options">
-        <button class="icon-btn option" title="Edit">
+        <button
+          class="icon-btn option"
+          title="Edit"
+          onclick="window.location.href=`{% url 'edit-note' note.id %}`;"
+        >
           <i class="fa-solid fa-pencil"></i>
         </button>
-        <button class="icon-btn option" title="Delete">
+        <button
+          class="icon-btn option"
+          title="Delete"
+          onclick="window.location.href=`{% url 'delete-note' note.id %}`;"
+        >
           <i class="fa-solid fa-trash"></i>
         </button>
       </div>
@@ -51,8 +75,12 @@
     <!-- /note-tools -->
   </div>
   <!-- /note-item -->
-
-  {% endfor %}
+  {% endfor %} {% else %}
+  <h2 class="note-item__message">No Notes Found!</h2>
+  <button class="btn" onclick="window.location.href=`{% url 'add-note' %}`;">
+    Add Notes
+  </button>
+  {% endif %}
 </div>
 <!-- /notes-container -->
 {% endblock content %}

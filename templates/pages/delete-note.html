@@ -1,11 +1,12 @@
 {% extends 'main.html' %} {% block content %}
 <div class="note-item__container delete-note">
   <h2 class="delete-note__confirm">Do you really want to delete note?</h2>
-  <h3 class="delete-note__title">"Interactively mesh 2.0."</h3>
+  <h3 class="delete-note__title">"{{ note.title }}"</h3>
 
-  <form action="">
+  <form action="" method="POST">
+    {% csrf_token %}
     <input type="submit" class="btn" value="Confirm" />
-    <a href="#" class="btn btn-link">Go Back</a>
+    <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-link"> Go Back </a>
   </form>
 </div>
 <!-- /delete-note -->

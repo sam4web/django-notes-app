@@ -1,16 +1,26 @@
 {% extends 'main.html' %} {% block content %}
 
 <div class="note-item__container edit-note">
-  <form action="">
-    <input type="text" class="edit-note__title" placeholder="Note title..." />
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input
+      type="text"
+      name="title"
+      class="edit-note__title"
+      placeholder="Note title..."
+      {% if note %}
+      value="{{ note.title }}"
+      {% endif %}
+    />
     <!-- /note-title -->
-    <textarea
-      name="note-body"
-      class="edit-note__body"
-      placeholder="Enter note..."
-    ></textarea>
+    <textarea name="body" class="edit-note__body" placeholder="Enter note...">
+{% if note %}{{ note.body }}{% endif %}
+    </textarea>
+
     <!-- /note-body -->
-    <input type="submit" class="btn" value="Submit" />
+    <button type="submit" class="btn">
+      {% if note %} Edit note {% else %} Add note {% endif %}
+    </button>
   </form>
 </div>
 <!-- /edit-note -->

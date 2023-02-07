@@ -5,7 +5,7 @@ from django.utils import timezone
 
 def generate_pk():
     number = random.randint(100000, 999999)
-    return "AA{}{}".format(timezone.now().strftime("%y%m%d"), number)
+    return f'{timezone.now().strftime("%y%m%d")}{number}'
 
 
 class Note(models.Model):
@@ -16,9 +16,10 @@ class Note(models.Model):
         unique=True,
         editable=False,
     )
-    title = models.CharField(null=True, max_length=200)
+    title = models.CharField(default="", max_length=200)
     body = models.TextField(null=True, blank=True)
-    created = models.DateField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title
