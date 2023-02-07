@@ -5,7 +5,6 @@ from .models import *
 
 def home_view(request):
     q = request.GET.get("q") if request.GET.get("q") != None else ""
-
     notes = Note.objects.filter(Q(title__icontains=q)).order_by("-updated", "-created")
     context = {"notes": notes}
     return render(request, "pages/home.html", context)
@@ -18,14 +17,13 @@ def display_note(request, pk):
 
 
 def add_note(request):
-    context = {}
     if request.method == "POST":
         Note(
             title=request.POST.get("title"),
             body=request.POST.get("body"),
         ).save()
         return redirect("home")
-    return render(request, "pages/edit-note.html", context)
+    return render(request, "pages/edit-note.html")
 
 
 def delete_note(request, pk):
