@@ -30,7 +30,7 @@ Simple notes app build with Django.
    ```
 4. Migrate django models
    ```bash
-   python manage.py makemigrations
+   python manage.py makemigrations base
    python manage.py migrate
    ```
 5. Start django server

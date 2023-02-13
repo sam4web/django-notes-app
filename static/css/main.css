@@ -115,8 +115,8 @@ body {
 .logo-text::after {
   content: '';
   position: absolute;
-  bottom: -4px;
   left: 50%;
+  bottom: -1px;
   transform: translateX(-50%);
   width: 0%;
   border-radius: 40px;
@@ -126,7 +126,7 @@ body {
 }
 
 .logo-text:hover::after {
-  width: 80%;
+  width: 70%;
 }
 /* Header Logo */
 
@@ -263,6 +263,7 @@ body {
 .note-item__message {
   margin-top: 50px;
   font-size: 32px;
+  color: var(--color-primary);
   line-height: 40px;
 }
 
@@ -341,13 +342,16 @@ body {
 .delete-note .delete-note__confirm {
   font-size: 34px;
   line-height: 42px;
-  margin-bottom: 13px;
+  margin-bottom: 15px;
   color: var(--color-primary);
 }
 
 .note .note__body {
   color: var(--font-color);
   margin-bottom: 25px;
+}
+.note .note__body > p {
+  margin-bottom: 7px;
 }
 
 .edit-note > form {
@@ -421,7 +425,6 @@ body {
   }
 
   .logo-text::after {
-    bottom: -3px;
     height: 1.5px;
   }
 
